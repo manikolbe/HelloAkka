@@ -6,9 +6,10 @@ object HelloAkka extends App {
 
   val system = ActorSystem("simplesystem")
   val actor = system.actorOf(Props[SimpleActor], "SimpleActor")
-
-  actor !   "hello"
-  actor !   122111
-  Thread.sleep(3000)
+  val StartTimestamp: Long = System.currentTimeMillis
+  while(System.currentTimeMillis - StartTimestamp<10000) {
+    actor !   "hello"
+  }
+  Thread.sleep(5000)
   system.terminate()
 }
