@@ -9,4 +9,6 @@ object HelloAkka extends App {
 
   actor !   "hello"
   actor !   122111
+  Thread.sleep(3000)
+  system.terminate()
 }
